@@ -31,4 +31,5 @@ jobs:
           max_attempts: 3
           retry_on: error
           timeout_seconds: 5
-          run: node ./tests/send-assignment-submit-result-script.js ${{ github.repository }}
+          command: | 
+            node ./tests/send-assignment-submit-result-script.js ${{ github.repository }}

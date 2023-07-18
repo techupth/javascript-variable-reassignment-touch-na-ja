@@ -26,4 +26,8 @@ jobs:
         run: npm ci
 
       - name: Send assignment submit result to SQL Database
-        run: node ./tests/send-assignment-submit-result-script.js ${{ github.repository }}
+        uses: mathieudutour/retry-step@v2
+        with:
+          max-retries: 3
+          delay-seconds: 5
+          run: node ./tests/send-assignment-submit-result-script.js ${{ github.repository }}
